@@ -16,7 +16,7 @@
     "project": {
       "environment": {
         "development": {
-          "www/drupal/project": "git:::git://git.drupal.org/project/drupal.git[7.x]"
+          "www/drupal/project": "git:::http://git.drupal.org/project/drupal.git[7.x]"
         }
       }
     }
