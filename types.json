@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "type_vagrant_dev": {
+      "settings": [
+        "vagrant_puppet"
+      ]
+    },
+    "type_full_dev": {
+      "settings": [
+        "type_vagrant_dev",
+        "vagrant_web",
+        "vagrant_db"
+      ],
+      "facts": {
+        "corl_environment": "development",
+        "corl_type": "full_dev"
+      }
+    }
+  }
+}

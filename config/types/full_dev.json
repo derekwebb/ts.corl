@@ -1,0 +1,122 @@
+{
+  "profiles": [
+    "puppetnode:::coralnexus::core::profile::percona_server",
+    "puppetnode:::coralnexus::web::profile::apache_static",
+    "puppetnode:::coralnexus::web::profile::varnish_server",
+    "puppetnode:::coralnexus::drupal::profile::apache_drupal"
+  ],
+  "corl::firewall": {
+    "unsecure_web": {
+      "name": "200 INPUT Allow new unsecure web connections",
+      "action": "accept",
+      "chain": "INPUT",
+      "state": "NEW",
+      "proto": "tcp",
+      "dport": "80"
+    },
+    "mysql": {
+      "name": "500 INPUT Allow new Percona MySQL connections",
+      "action": "accept",
+      "chain": "INPUT",
+      "state": "NEW",
+      "proto": "tcp",
+      "dport": "6620"
+    }
+  },
+  "corl::gem_names": [
+    "compass",
+    "sassy-buttons"
+  ],
+  "haproxy::service_ensure": "stopped",
+  "haproxy::config": {},
+  "varnish::start": "no",
+  "varnish::varnish_listen_port": "8080",
+  "varnish::varnish_admin_listen_address": "127.0.0.1",
+  "varnish::varnish_admin_listen_port": "1742",
+  "varnish::varnish_min_threads": "3",
+  "varnish::varnish_max_threads": "50",
+  "varnish::varnish_thread_timeout": "600",
+  "varnish::varnish_storage_size": "250M",
+  "varnish::varnish_ttl": "120",
+  "varnish::vcl::blockedips": [],
+  "varnish::vcl::blockedbots": [],
+  "varnish::vcl::defaultgrace": "24h",
+  "varnish::vcl::min_cache_time": "1h",
+  "varnish::vcl::static_cache_time": "3h",
+  "varnish::vcl::template": "varnish_drupal/varnish-vcl.erb",
+  "varnish::vcl::manage_includes": true,
+  "varnish::vcl::purgeips": [ "127.0.0.1" ],
+  "varnish_server::acl": {},
+  "varnish_server::probe": {},
+  "varnish_server::backend": {},
+  "varnish_server::director": {},
+  "varnish_server::selector": {},
+  "apache::user": "www-data",
+  "apache::group": "vagrant",
+  "apache::configure_firewall": false,
+  "php::cli_sendmail_path": "/usr/bin/nullmailer-inject",
+  "php::apache_sendmail_path": "/usr/bin/nullmailer-inject",
+  "apache_drupal::git_user": "vagrant",
+  "drupal::site": {
+    "project_local": {
+      "domain": "project.loc",
+      "aliases": [],
+      "databases": {
+        "default" : {
+          "driver": "mysql",
+          "host": "localhost",
+          "port": "6620",
+          "transactions": "TRUE"
+        }
+      },
+      "manage_site_repo": false,
+      "use_make": false,
+      "repo_name": "project",
+      "source": "",
+      "revision": "master",
+      "make_file": "",
+      "include_repos": true,
+      "site_dir": "default",
+      "dir_mode": "0770",
+      "site_dir_mode": "0770",
+      "files_dir": "",
+      "base_url": "",
+      "cookie_domain": "project.loc",
+      "session_max_lifetime": "200000",
+      "session_cookie_lifetime": "2000000",
+      "pcre_backtrack_limit": "200000",
+      "pcre_recursion_limit": "200000",
+      "ini_settings": {},
+      "apache_vhost_ip": "*",
+      "apache_priority": "15",
+      "apache_options": "Indexes FollowSymLinks MultiViews",
+      "apache_http_port": "80",
+      "apache_https_port": "443",
+      "apache_error_log_level": "warn",
+      "require": [ "Corl::File[users_conf_vagrant_private_keys]", "Corl::File[users_conf_vagrant_public_keys]" ]
+    }
+  },
+  "drupal::site::project::local::file": {
+    "config": {
+      "mode": "0770"
+    }
+  },
+  "git::repo::drupal::site::project::local::hooks::file_defaults": {
+    "mode": "0770"
+  },
+  "drupal::site::project::local::cron": {
+    "drupal_general_cron": {
+      "command": "/usr/bin/wget -O - -q -t 1 https://project.loc/cron.php?cron_key=6RhN2rYB1_iSf_z-zuwiiweFcbc9IYpwYnhf0hwpyvw",
+      "ensure": "present",
+      "minute": [ 0, 30 ],
+      "require": "File[drupal_site_project_local_files]"
+    }
+  },
+  "percona::configure_firewall": false,
+  "percona::database": {
+    "project": {
+      "ensure": "importdb",
+      "sql_dump_file": "/var/corl/db/project-db.mysql"
+    }
+  }
+}

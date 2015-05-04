@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "local": {
+      "facts": {
+        "corl_stage": "initialize",
+        "corl_type": "local"
+      }
+    },
+    "server": {
+      "facts": {
+        "corl_stage": "initialize",
+        "corl_type": "server"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "identity_vagrant": {
+      "facts": {
+        "corl_identity": "vagrant"
+      }
+    }
+  }
+}

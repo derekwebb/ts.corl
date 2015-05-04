@@ -1,0 +1,170 @@
+{
+  "settings": {
+    "vagrant": {
+      "user": "vagrant",
+      "ssh_port": 22,
+      "private_key": "keys/vagrant-id_rsa",
+      "public_key": "keys/vagrant-id_rsa.pub",
+      "user_home": "/home/vagrant",
+      "vm": {
+        "providers": {
+          "virtualbox": {
+            "customize": {
+              "modifyvm": ":id",
+              "--cpuexecutioncap": "50",
+              "--cpus": "1",
+              "--memory": "1024",
+              "--natdnshostresolver1": "on"
+            },
+            "override": {
+              "vm": {
+                "box": "coralnexus/vagrant-ubuntu-14.04"
+              }
+            }
+          }
+        }
+      },
+      "shares": {
+        "network": {
+          "type": "rsync",
+          "owner": "root",
+          "group": "root",
+          "local": ".",
+          "remote": "/var/corl",
+          "rsync__exclude": [
+            "share/",
+            "www/",
+            "boxes/"
+          ],
+          "rsync__auto": true,
+          "rsync__chown": true,
+          "rsync__args": [
+            "--verbose",
+            "--rsync-path='sudo rsync'",
+            "--archive",
+            "-z"
+          ]
+        },
+        "corl_properties": {
+          "type": "nfs",
+          "local": "share/log/corl",
+          "remote": "/var/log/corl",
+          "bindfs": {
+            "owner": "root",
+            "group": "root",
+            "perms": "u=rwx:g=rwx:o=rwx",
+            "create-as-user": true,
+            "chown-ignore": true,
+            "chgrp-ignore": true,
+            "chmod-ignore": true
+          }
+        }
+      }
+    },
+    "vagrant_puppet": {
+      "shares": {
+        "puppet_reports": {
+          "type": "nfs",
+          "local": "share/log/puppet",
+          "remote": "/var/log/puppet/reports",
+          "bindfs": {
+            "owner": "root",
+            "group": "root",
+            "perms": "u=rwx:g=rwx:o=rwx",
+            "create-as-user": true,
+            "chown-ignore": true,
+            "chgrp-ignore": true,
+            "chmod-ignore": true
+          }
+        },
+        "puppet_lib_reports": {
+          "type": "nfs",
+          "local": "share/lib/puppet/reports",
+          "remote": "/var/lib/puppet/reports",
+          "bindfs": {
+            "owner": "root",
+            "group": "root",
+            "perms": "u=rwx:g=rwx:o=rwx",
+            "create-as-user": true,
+            "chown-ignore": true,
+            "chgrp-ignore": true,
+            "chmod-ignore": true,
+            "o": "nonempty"
+          }
+        },
+        "puppet_lib_state": {
+          "type": "nfs",
+          "local": "share/lib/puppet/state",
+          "remote": "/var/lib/puppet/state",
+          "bindfs": {
+            "owner": "root",
+            "group": "root",
+            "perms": "u=rwx:g=rwx:o=rwx",
+            "create-as-user": true,
+            "chown-ignore": true,
+            "chgrp-ignore": true,
+            "chmod-ignore": true,
+            "o": "nonempty"
+          }
+        }
+      }
+    },
+    "vagrant_php": {
+      "shares": {
+        "php_traces": {
+          "type": "nfs",
+          "local": "share/log/php/traces",
+          "remote": "/var/log/traces",
+          "bindfs": {
+            "owner": "root",
+            "group": "root",
+            "perms": "u=rwx:g=rwx:o=rwx",
+            "create-as-user": true,
+            "chown-ignore": true,
+            "chgrp-ignore": true,
+            "chmod-ignore": true
+          }
+        },
+        "php_profiles": {
+          "type": "nfs",
+          "local": "share/log/php/profiles",
+          "remote": "/var/log/profiles",
+          "bindfs": {
+            "owner": "root",
+            "group": "root",
+            "perms": "u=rwx:g=rwx:o=rwx",
+            "create-as-user": true,
+            "chown-ignore": true,
+            "chgrp-ignore": true,
+            "chmod-ignore": true
+          }
+        }
+      }
+    },
+    "vagrant_web": {
+      "settings": [
+        "vagrant_php"
+      ],
+      "shares": {
+        "drupal_project": {
+          "type": "rsync",
+          "owner": "vagrant",
+          "group": "vagrant",
+          "local": "www/drupal/project",
+          "remote": "/var/www/project",
+          "rsync__exclude": [
+            "sites/default/settings.php"
+          ],
+          "rsync__auto": true,
+          "rsync__chown": true,
+          "rsync__args": [
+            "--verbose",
+            "--rsync-path='sudo rsync'",
+            "--archive",
+            "-z"
+          ]
+        }
+      }
+    }
+  }
+}

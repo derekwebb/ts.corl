@@ -1,0 +1,31 @@
+{
+  "builders": {
+    "package": {
+      "environment": {
+        "production": {
+          "coralnexus__drupal": "github:::coralnexus/corl-package-drupal[bbaeb441456e2bf19eb3bc1cebf01f08600f8aaf]"
+        },
+        "qa": {
+          "use": "production"
+        },
+        "default": {
+          "coralnexus__drupal": "github:::coralnexus/corl-package-drupal"
+        }
+      }
+    },
+    "project": {
+      "environment": {
+        "development": {
+          "www/drupal/project": "git:::git://git.drupal.org/project/drupal.git[7.x]"
+        }
+      }
+    }
+  },
+  "provisioners": {
+    "puppetnode": {
+      "project::site": {
+        "directory": "puppet"
+      }
+    }
+  }
+}

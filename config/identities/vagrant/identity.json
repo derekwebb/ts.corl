@@ -1,0 +1,37 @@
+{
+  "users::user_label": "Vagrant account",
+  "users::user_email": "admin@coraltechgroup.com",
+  "users::root_label": "Admin (Vagrant admin)",
+  "users::root_email": "admin@coraltechgroup.com",
+  "users::known_hosts": [ "github.com" ],
+  "git::git_label": "Admin (Vagrant git account)",
+  "git::git_email": "admin@coraltechgroup.com",
+  "git::allowed_ssh_key": "",
+  "git::public_ssh_key": "",
+  "git::private_ssh_key": "",
+  "git::password": "$1$GLZ0d7yo$8dbtcjAn9dChpcEyKu8OK1",
+  "git::file": {
+    "vagrant_gitconfig": {
+      "path": "/home/vagrant/.gitconfig",
+      "content": {
+        "user": {
+          "name": "Vagrant development account",
+          "email": "admin@coraltechgroup.com"
+        }
+      }
+    }
+  },
+  "users::conf::vagrant::file": {
+    "ssh_conf": {
+      "content": {
+        "Host": {
+          "github.com": {
+            "StrictHostKeyChecking": "no",
+            "Identityfile": "~/.ssh/id_github"
+          }
+        }
+      }
+    }
+  },
+  "nullmailer::service_ensure": "stopped"
+}

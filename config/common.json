@@ -1,0 +1,25 @@
+{
+  "profiles": [
+    "puppetnode:::coralnexus::core::profile::base"
+  ],
+  "corl::hiera_hierarchy": [
+    "identities/%{::corl_identity}/nodes/%{::corl_provider}/%{::fqdn}",
+    "identities/%{::corl_identity}/stages/%{::corl_stage}",
+    "identities/%{::corl_identity}/environments/%{::corl_environment}",
+    "identities/%{::corl_identity}/types/%{::corl_type}",
+    "identities/%{::corl_identity}/identity",
+    "nodes/%{::corl_provider}/%{::fqdn}/%{::corl_stage}",
+    "nodes/%{::corl_provider}/%{::fqdn}",
+    "environments/%{::corl_environment}/%{::corl_stage}",
+    "environments/%{::corl_environment}",
+    "stages/%{::corl_stage}",
+    "types/%{::corl_type}",
+    "common"
+  ],
+  "corl::extra_package_names": [ "bash-completion", "mailutils" ],
+  "haproxy::service_ensure": "stopped",
+  "haproxy::default_config": {
+    "ENABLED": "1",
+    "EXTRAOPTS": "-de -m 16"
+  }
+}

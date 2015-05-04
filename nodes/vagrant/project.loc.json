@@ -1,0 +1,25 @@
+{
+  "nodes": {
+    "vagrant": {
+      "project.loc": {
+        "settings": [
+          "all",
+          "server",
+          "vagrant",
+          "type_full_dev",
+          "identity_vagrant",
+          "project.loc"
+        ],
+        "hostname": "project.loc",
+        "id": "project.loc",
+        "vm": {
+          "providers": {
+            "virtualbox": {
+              "private_network": "172.100.100.150"
+            }
+          }
+        }
+      }
+    }
+  }
+}

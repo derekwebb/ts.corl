@@ -1,0 +1,29 @@
+{
+  "drupal::site": {
+    "project_local": {
+      "databases": {
+        "default" : {
+          "database": "project",
+          "username": "project",
+          "password": "SFw8bYdyzVn41pEKb3Os"
+        }
+      },
+      "admin_email": "admin@coraltechgroup.com",
+      "apache_use_ssl": false,
+      "apache_ssl_cert": "",
+      "apache_ssl_key": ""
+    }
+  },
+  "percona::root_password": "%BusGtwhr78Rgs67lNbxyOp0%",
+  "percona::mysql_password": "%BaqD74w0aZHKsy7U3Hva56L%",
+  "percona::database": {
+    "project": {
+      "database": "project",
+      "user_name": "project",
+      "password": "SFw8bYdyzVn41pEKb3Os",
+      "permissions": "ALL",
+      "grant": false,
+      "allow_remote": true
+    }
+  }
+}
