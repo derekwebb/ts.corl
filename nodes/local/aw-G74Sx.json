@@ -1,0 +1,18 @@
+{
+  "nodes": {
+    "local": {
+      "aw-G74Sx": {
+        "settings": [
+          "all",
+          "local",
+          "aw-G74Sx"
+        ],
+        "build": "2015-05-04 22:41:55 -0400",
+        "id": "aw-G74Sx",
+        "public_ip": "",
+        "state": "running",
+        "machine_type": "physical"
+      }
+    }
+  }
+}
