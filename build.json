@@ -3,7 +3,7 @@
     "package": {
       "environment": {
         "production": {
-          "coralnexus__drupal": "github:::coralnexus/corl-package-drupal[bbaeb441456e2bf19eb3bc1cebf01f08600f8aaf]"
+          "coralnexus__drupal": "github:::coralnexus/corl-package-drupal[ffde7d70991c1b01c947aaba990257ef2d589099]"
         },
         "qa": {
           "use": "production"
