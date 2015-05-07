@@ -150,8 +150,8 @@
           "type": "rsync",
           "owner": "vagrant",
           "group": "vagrant",
-          "local": "www/drupal/project",
-          "remote": "/var/www/project",
+          "local": "www/drupal/project.loc",
+          "remote": "/var/www/project.loc",
           "rsync__exclude": [
             "sites/default/settings.php"
           ],
