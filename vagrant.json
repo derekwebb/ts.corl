@@ -151,7 +151,7 @@
           "owner": "vagrant",
           "group": "vagrant",
           "local": "www/drupal/project.loc",
-          "remote": "/var/www/project.loc",
+          "remote": "/var/www/drupal/project.loc",
           "rsync__exclude": [
             "sites/default/settings.php"
           ],
