@@ -16,7 +16,7 @@
     "project": {
       "environment": {
         "development": {
-          "www/drupal/project": "git:::http://git.drupal.org/project/drupal.git[7.x]",
+          "www/drupal/project.loc": "git:::http://git.drupal.org/project/drupal.git[7.x]",
           "gems/corl": "github:::coralnexus/corl[0.5]",
           "gems/nucleon": "github:::coralnexus/nucleon[0.2]"
         }
