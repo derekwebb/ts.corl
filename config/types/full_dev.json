@@ -51,7 +51,7 @@
   "varnish_server::backend": {},
   "varnish_server::director": {},
   "varnish_server::selector": {},
-  "apache::user": "www-data",
+  "apache::user": "vagrant",
   "apache::group": "vagrant",
   "apache::configure_firewall": false,
   "php::cli_sendmail_path": "/usr/bin/nullmailer-inject",
