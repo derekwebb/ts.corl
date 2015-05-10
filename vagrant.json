@@ -34,6 +34,7 @@
           "rsync__exclude": [
             "share/",
             "www/",
+            "gems/",
             "boxes/"
           ],
           "rsync__auto": true,
