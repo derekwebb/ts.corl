@@ -18,6 +18,9 @@
               "private_network": "172.100.100.150"
             }
           }
+        },
+        "facts": {
+          "corl_stage": "initialize"
         }
       }
     }
