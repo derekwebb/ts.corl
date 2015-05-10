@@ -16,7 +16,7 @@ for Drupal development and initializes a new site from a Drupal repository.
 Getting started
 ---------------
 
-1. Make sure CORL is installed:
+* Make sure CORL is installed:
 
         vagrant plugin install corl
 
@@ -25,19 +25,19 @@ your .bashrc or wherever you keep your environment aliases defined.
 
         alias corl='vagrant corl'
 
-2. Clone this project down or fork on GitHub:
+* Clone this project down or fork on GitHub:
 
         git clone git://github.com/coraltech/drupal-dev.git
         git remote rm origin
         git remote add origin {your project url}
 
-3. Fork the Drupal Git repository into your own project:
+* Fork the Drupal Git repository into your own project:
 
         git clone -b 7.x http://git.drupal.org/project/drupal.git drupal
         git remote add project {your drupal url}
         git push project 7.x
 
-4. Edit the build.json in the top level and change the base Drupal Git url with
+* Edit the build.json in the top level and change the base Drupal Git url with
 the url for your project.
 
         vim build.json
@@ -47,14 +47,14 @@ the url for your project.
         # to:
         "www/drupal/project.loc": "git(hub)?:::{your project url}[{your dev branch}]",
 
-5. Build the local development environment:
+* Build the local development environment:
 
         corl node build development
 
 This will clone down all of the packages, provisioner modules, gems, and Drupal
 repositories that you have defined in the build.json configurations.
 
-6. Start the Vagrant machine:
+* Start the Vagrant machine:
 
         vagrant up
 
@@ -80,19 +80,19 @@ corl_stage back to "initialize" and run:
 
         vagrant provision
 
-7. Start the Vagrant RSync process
+* Start the Vagrant RSync process
 
 In another continuously running terminal start the Vagrant RSync process to
 follow changes to the project and sync with the Vagrant machine.
 
         vagrant rsync-auto
 
-8. When you need to SSH into the box, run:
+* When you need to SSH into the box, run:
 
         vagrant ssh
 
-9. If you need to reprovision the machine you can run:
+* If you need to reprovision the machine you can run:
 
         corl node provision --nodes=project.loc
 
-10. Now you should be good to go for local Drupal development...
+* Now you should be good to go for local Drupal development...
