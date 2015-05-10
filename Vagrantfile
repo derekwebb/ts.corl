@@ -11,7 +11,7 @@ Vagrant.configure('2') do |config|
     
     provisioner.seed      = false
     
-    provisioner.environment = "development"
+    provisioner.environment = "production"
     provisioner.build       = true
     provisioner.provision   = true
     provisioner.dry_run     = false
