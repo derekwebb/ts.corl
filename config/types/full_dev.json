@@ -73,7 +73,7 @@
       "use_make": false,
       "repo_name": "project",
       "source": "",
-      "revision": "master",
+      "revision": "7.x",
       "make_file": "",
       "include_repos": true,
       "site_dir": "default",
@@ -98,7 +98,7 @@
   },
   "drupal::site::project::local::file": {
     "config": {
-      "mode": "0770"
+      "mode": "0440"
     }
   },
   "git::repo::drupal::site::project::local::hooks::file_defaults": {
