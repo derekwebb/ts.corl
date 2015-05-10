@@ -1,0 +1,11 @@
+{
+  "drupal::site::project::local::extra::exec": {
+    "initialize_drupal": {
+      "command": "drush -y si minimal --account-name=admin --account-pass=admin",
+      "cwd": "/var/www/drupal/project.loc",
+      "user": "vagrant",
+      "refreshonly": true,
+      "subscribe": "Percona::Database[project]"
+    }
+  }
+}
