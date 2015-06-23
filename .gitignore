@@ -22,4 +22,4 @@ gems/corl
 gems/nucleon
 config/identities/*/
 !config/identities/vagrant/
-www/drupal/project.loc
+www/drupal/ts.loc

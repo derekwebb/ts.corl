@@ -10,7 +10,7 @@ known issues with Windows due to C style extensions that are required for the
 Nucleon gem that Vagrant can not currently compile.  Hopefully in the near
 future this will be resolved.
 
-This project creates a project.loc Vagrant machine that is fully provisioned
+This project creates a ts.loc Vagrant machine that is fully provisioned
 for Drupal development and initializes a new site from a Drupal repository.
 
 Getting started
@@ -43,9 +43,9 @@ the url for your project.
         vim build.json
 
         # Find the project environment development section and change:
-        "www/drupal/project.loc": "git:::http://git.drupal.org/project/drupal.git[7.x]",
+        "www/drupal/ts.loc": "git:::http://git.drupal.org/project/drupal.git[7.x]",
         # to:
-        "www/drupal/project.loc": "git(hub)?:::{your project url}[{your dev branch}]",
+        "www/drupal/ts.loc": "git(hub)?:::{your project url}[{your dev branch}]",
 
 * Build the local development environment:
 
@@ -64,7 +64,7 @@ process on the Vagrant server, and provision the machine with the Drupal site.
 When this process completes successfully, change the corl_stage fact in the node
 configuration to maintain:
 
-        vim nodes/vagrant/project.loc.json
+        vim nodes/vagrant/ts.loc.json
 
         # Find the corl_stage fact assignment and change:
         "corl_stage": "initialize"
@@ -73,7 +73,7 @@ configuration to maintain:
 
 or run:
 
-        corl node fact corl_stage maintain --nodes=project.loc
+        corl node fact corl_stage maintain --nodes=ts.loc
 
 If you need to wipe all your changes and start again from scratch, change the
 corl_stage back to "initialize" and run:
@@ -93,6 +93,6 @@ follow changes to the project and sync with the Vagrant machine.
 
 * If you need to reprovision the machine you can run:
 
-        corl node provision --nodes=project.loc
+        corl node provision --nodes=ts.loc
 
 * Now you should be good to go for local Drupal development...

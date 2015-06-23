@@ -59,7 +59,7 @@
   "apache_drupal::git_user": "vagrant",
   "drupal::site": {
     "project_local": {
-      "domain": "project.loc",
+      "domain": "ts.loc",
       "aliases": [],
       "databases": {
         "default" : {
@@ -81,7 +81,7 @@
       "site_dir_mode": "0770",
       "files_dir": "",
       "base_url": "",
-      "cookie_domain": "project.loc",
+      "cookie_domain": "ts.loc",
       "session_max_lifetime": "200000",
       "session_cookie_lifetime": "2000000",
       "pcre_backtrack_limit": "200000",
@@ -106,7 +106,7 @@
   },
   "drupal::site::project::local::cron": {
     "drupal_general_cron": {
-      "command": "/usr/bin/wget -O - -q -t 1 https://project.loc/cron.php?cron_key=6RhN2rYB1_iSf_z-zuwiiweFcbc9IYpwYnhf0hwpyvw",
+      "command": "/usr/bin/wget -O - -q -t 1 https://ts.loc/cron.php?cron_key=6RhN2rYB1_iSf_z-zuwiiweFcbc9IYpwYnhf0hwpyvw",
       "ensure": "present",
       "minute": [ 0, 30 ],
       "require": "File[drupal_site_project_local_files]"

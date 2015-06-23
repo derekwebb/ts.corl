@@ -1,17 +1,17 @@
 {
   "nodes": {
     "vagrant": {
-      "project.loc": {
+      "ts.loc": {
         "settings": [
           "all",
           "server",
           "vagrant",
           "type_full_dev",
           "identity_vagrant",
-          "project.loc"
+          "ts.loc"
         ],
-        "hostname": "project.loc",
-        "id": "project.loc",
+        "hostname": "ts.loc",
+        "id": "ts.loc",
         "vm": {
           "providers": {
             "virtualbox": {
