@@ -1,0 +1,18 @@
+{
+  "nodes": {
+    "local": {
+      "mcp.local": {
+        "settings": [
+          "all",
+          "local",
+          "mcp.local"
+        ],
+        "build": "2015-06-23 09:32:03 -0400",
+        "id": "mcp.local",
+        "public_ip": "66.42.162.131",
+        "state": "running",
+        "machine_type": "physical"
+      }
+    }
+  }
+}
