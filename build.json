@@ -16,7 +16,7 @@
     "project": {
       "environment": {
         "development": {
-          "www/drupal/ts.loc": "git:::http://github.com/derekwebb/ts.site.git[7.x]",
+          "www/drupal/ts.loc": "git:::http://github.com/derekwebb/ts.site.git[development]",
           "gems/corl": "github:::coralnexus/corl[0.5]",
           "gems/nucleon": "github:::coralnexus/nucleon[0.2]"
         }
